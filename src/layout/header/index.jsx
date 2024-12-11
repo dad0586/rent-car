@@ -11,11 +11,12 @@ const Header = () => {
                     <div className="navbar_logo">
                         <Link to="/"> <Icon /> </Link>
                     </div>
-                    <div className="navbar_links">
-                        <Link to="/"> Home </Link>
-                    </div>
                     <div className="navbar_search">
                         <Search1/>
+                    </div>
+                    <div className="navbar_links">
+                        <Link to="/"> Home </Link> 
+                        <Link to="/category"> Category </Link> 
                     </div>
                 </div>
             </div>

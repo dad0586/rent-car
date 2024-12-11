@@ -1,32 +1,49 @@
 import React from "react";
 import "./main.scss";
+import useFetch from "../../hooks/fetch";
+
 
 const CarCard = ({ car }) => {
+
+  const url = `http://localhost:3000/products`
+console.log(car); // data ni tekshirish
+
+
+
+
+
   return (
     <div className="car-card">
       <div className="car-card__header">
-        <h3 className="car-card__title">{car.name}</h3>
-        <p className="car-card__type">{car.type}</p>
-        <div className="car-card__favorite">
-          <i className="fa fa-heart" aria-hidden="true"></i>
-        </div>
+        <h3 className="car-card__title">{car?.name}</h3>
+        <p className="car-card__type">Type</p>
       </div>
+
+
+
       {/* Rasm uchun joy (Bo'sh qoldirilgan) */}
-      <div className="car-card__image-placeholder"></div>
+
+      
+      <div className="car_image">
+        <img
+           src={car?.image} alt="image"
+        />
+      </div>
+
+
+
+
       <div className="car-card__details">
         <div className="car-card__info">
           <span>
-            <i className="fa fa-gas-pump"></i> {car.fuelCapacity}L
+            <i className="fa fa-gas-pump"></i> 10 L
           </span>
           <span>
-            <i className="fa fa-cogs"></i> {car.transmission}
-          </span>
-          <span>
-            <i className="fa fa-users"></i> {car.seatingCapacity} People
+            <i className="fa fa-users"></i> 2 People
           </span>
         </div>
         <div className="car-card__pricing">
-          <h4>${car.price}/day</h4>
+          <h4>20$/day</h4>
           <button className="car-card__rent-btn">Rent Now</button>
         </div>
       </div>
