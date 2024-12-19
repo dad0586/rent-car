@@ -9,14 +9,13 @@ const Category = () => {
     const { data, loading, error } = useFetch(url);
 
     if (loading) return <p>Yuklanmoqda...</p>;
-    if (error) return <p>Xatolik: {error}</p>;
+    if (error) return <p>Xatolik:" {error}</p>;
 
     return (
         <>
             <div className="container">
                 <div className="header">
                     <div>
-
                         {
                             data?.map((item, key) => (
                                 <CarCard car={item} />
