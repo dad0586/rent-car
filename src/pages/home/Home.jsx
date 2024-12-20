@@ -13,15 +13,12 @@ const Home = () => {
   return (
     <>
       <div className="container">
-        <div className="header">
-          <div>
-
+        <div className="home">
             {
-              data?.map((item, key) => (
+              data?.slice(0, 12).map((item, key) => (
                 <CarCard car={item} />
               ))
             }
-          </div>
         </div>
       </div>
     </>

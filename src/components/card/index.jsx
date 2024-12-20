@@ -1,6 +1,8 @@
 import React from "react";
 import "./main.scss";
 import useFetch from "../../hooks/fetch";
+import { Rate } from "antd";
+
 
 
 const CarCard = ({ car }) => {
@@ -14,7 +16,6 @@ const CarCard = ({ car }) => {
 
   return (
     <>
-      <div className="container">
         <div className="car-card">
           <div className="car-card_title">
             <h2>{car?.name}</h2>
@@ -30,11 +31,13 @@ const CarCard = ({ car }) => {
             <p>2 People</p>
           </div>
           <div className="car-card_buy">
-            <p>20$/day</p>
+            <p>{car?.price}$/<span>day</span> </p>
             <button>Rent Now</button>
           </div>
+          <div>
+          <Rate allowHalf disabled value={car?.rating}/>
+          </div>
         </div>
-      </div>
     </>
   );
 };

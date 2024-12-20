@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CarCard from '../../components/card';
 import useFetch from '../../hooks/fetch';
+import "./main.scss"
 
 
 const Category = () => {
@@ -14,14 +15,12 @@ const Category = () => {
     return (
         <>
             <div className="container">
-                <div className="header">
-                    <div>
-                        {
-                            data?.map((item, key) => (
-                                <CarCard car={item} />
-                            ))
-                        }
-                    </div>
+                <div className='category'>
+                    {
+                        data?.slice(0, 8).map((item, key) => (
+                            <CarCard car={item} />
+                        ))
+                    }
                 </div>
             </div>
         </>
