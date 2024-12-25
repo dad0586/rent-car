@@ -2,27 +2,29 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const useFetch = (url) => {
-    const [data, setData] = useState(null); // Ma'lumotlarni saqlash
-    const [loading, setLoading] = useState(true); // Yuklanish holati
-    const [error, setError] = useState(null); // Xatolik holati
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
+        if (!url) return; // Agar URL mavjud bo'lmasa, hech narsa qilmaydi
+
         const fetchData = async () => {
             try {
-                setLoading(true); // Yuklanish boshlanadi
-                const response = await axios.get(url); // API chaqiruvi
-                setData(response.data); // Ma'lumotlarni saqlash
+                setLoading(true);
+                const response = await axios.get(url);
+                setData(response.data);
             } catch (err) {
-                setError(err.message); // Xatolikni boshqarish
+                setError(err.message);
             } finally {
-                setLoading(false); // Yuklanish tugadi
+                setLoading(false);
             }
         };
 
         fetchData();
-    }, [url]); // url o'zgarganda effektni qayta bajarish
+    }, [url]);
 
-    return { data, loading, error }; // Hook natijalarini qaytarish
+    return { data, loading, error };
 };
 
 export default useFetch;
